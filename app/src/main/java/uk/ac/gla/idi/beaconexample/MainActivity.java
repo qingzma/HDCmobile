@@ -419,7 +419,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View row = inflater.inflate(R.layout.layout_scanresult, parent, false);
+            View row;
+            if(convertView == null) {
+                row = inflater.inflate(R.layout.layout_scanresult, parent, false);
+            } else {
+                row = convertView;
+            }
 
             // manually set the contents of each of the labels
             TextView field1 = (TextView) row.findViewById(R.id.resultField1);
@@ -431,6 +436,8 @@ public class MainActivity extends AppCompatActivity {
             // if this happens to be the selected beacon, change the background colour to highlight it
             if(selectedBeacon != null && info.equals(selectedBeacon))
                 row.setBackgroundColor(Color.argb(64, 0, 255, 0));
+            else
+                row.setBackgroundColor(Color.argb(255, 255, 255, 255));
 
             return row;
         }
