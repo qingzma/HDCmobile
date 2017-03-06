@@ -17,4 +17,12 @@ public final class FeedReaderContract {
         public static final String COLUMN_NAME_TITLE = "title";
         public static final String COLUMN_NAME_SUBTITLE = "subtitle";
     }
+    public boolean isTrue(){
+        return true;
+    }
+
+    public static void main(String args){
+        System.out.println("hahah");
+
+    }
 }
